@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center" style="margin-top: 5rem;">
+  <div class="w-auto p-5" style="background-color: #ffffff; width: auto; border-radius: 30px">
+    <h1>휴무 신청</h1>
+    <hr>
+    <form action="{% url 'schedule:create_modification' %}" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <button class="DFN-btn float-end">신청</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

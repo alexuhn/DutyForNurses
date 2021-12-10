@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center m-5" style="margin-top: 5rem;">
+  <div class="w-auto p-5" style="background-color: #ffffff; width: auto; border-radius: 30px">
+    <h1>간호사 등록</h1>
+    <hr>
+    <form action="{% url 'accounts:signup' %}" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form user_creation_form %}
+      {% bootstrap_form profile_form %}
+      <button class="DFN-btn float-end">등록</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

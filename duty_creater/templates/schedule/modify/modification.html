@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block content %}
+<div class="d-flex flex-column align-items-center" style="margin-top: 5rem;">
+  <div class="w-auto p-5" style="background-color: #ffffff; width: auto; border-radius: 30px">
+    <a href="{% url 'schedule:create_modification' %}">
+      <button class="DFN-btn mx-2 m-2" style="float: right;">휴무 신청</button>
+    </a>
+    <h1>신청한 휴무 기록</h1>
+
+
+    <hr>
+    <table class="table text-center w-auto table-hover">
+      <thead>
+        <tr>
+          <td>분류</td>
+          <td>휴무 시작일</td>
+          <td>휴무 종료일</td>
+          <td>비고</td>
+          <td>승인</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for modification in modifications %}
+        <tr>
+          {% if modification.category == 'PTO' %}
+          <td>연차</td>
+          {% else %}
+          <td>휴가</td>
+          {% endif %}
+          <td>{{ modification.from_date }}</td>
+          <td>{{ modification.to_date }}</td>
+          <td>{{ modification.note }}</td>
+          {% if modification.approval %}
+          <td>허가</td>
+          {% else %}
+          <td>미승인</td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock content %}

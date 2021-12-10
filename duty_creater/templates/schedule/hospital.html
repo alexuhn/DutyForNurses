@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block content %}
+<div id="loading" style="
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: none;
+    ">
+  <div class="spinner-border" role="status" 
+    style="top: 50%;
+    left: 50%;
+    position: absolute;
+    width: 3rem; height: 3rem; color: #264653;" >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<div class="p-5" style="background-color: #ffffff; width: auto; border-radius: 30px">
+  {% if existence %}
+  <h1>{{ year}}년 {{ month }}월의 듀티</h1>
+
+  {% if request.user.is_staff %}
+  <button id="editButton" class="DFN-btn" style="float: right;">수정</button>
+  <form class="confirmForm" data-confirm-date="{{ start_date }}" style="display: none;">
+    {% csrf_token %}
+    <button class="DFN-btn" style="float: right;" id="confirmButton">확정</button>
+  </form>
+  {% endif %}
+
+  {% for team_duty_list in team_duties %}
+    <table class="table text-center table-hover">
+      <thead>
+        <tr>
+          <th colspan="32">{{ forloop.counter }}팀의 한달 일정</th>
+        </tr>
+        <tr>
+          <td></td>
+          {% for day in days %}  
+          <td>{{ day }}</td>
+          {% endfor %}
+        </tr>
+        <tr>
+          <td></td>
+          {% for weekday in weekdays %}  
+          {% if weekday == '일' %}
+          <td style="color:#e76f51;">{{ weekday }}</td>
+          {% elif weekday == '토' %}
+          <td style="color:#457b9d;">{{ weekday }}</td>
+          {% else %}
+          <td>{{ weekday }}</td>
+          {% endif %}
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for team_duty in team_duty_list %}
+          {% for nurse_info, duties in team_duty.items %}
+          {% if duties %}
+          <tr>
+            {% if request.user.profile.name == nurse_info.1 %}
+            <td class="fw-bolder" style="color: #e76f51;">{{ nurse_info.1 }}</td>
+            {% else %}
+            <td>{{ nurse_info.1 }}</td>
+            {% endif %}
+
+            {% for duty in duties %}
+
+            {% if duty == 0 %}
+            <td data-nurse-pk="{{ nurse_info.0 }}" data-date="{{ forloop.counter }}" data-target-duty="{{ duty }}" class="duty">/</td>
+            {% elif duty == 1 %}
+            <td style="background-color:#2a9d8f;" data-nurse-pk="{{ nurse_info.0 }}" data-date="{{ forloop.counter }}" data-target-duty="{{ duty }}" class="duty">D</td>
+            {% elif duty == 2 %}
+            <td style="background-color:#e9c46a;" data-nurse-pk="{{ nurse_info.0 }}" data-date="{{ forloop.counter }}" data-target-duty="{{ duty }}" class="duty">E</td>
+            {% else %}
+            <td style="background-color:#f4a261;" data-nurse-pk="{{ nurse_info.0 }}" data-date="{{ forloop.counter }}" data-target-duty="{{ duty }}" class="duty">N</td>
+            {% endif %}
+
+            {% endfor %}
+
+          </tr>
+          {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+  {% else %}
+  <h2 style="text-align: center;">선택하신 날의 듀티가 존재하지 않습니다</h2>
+  {% endif %}
+</div>
+{% endblock content %}
+
+
+{% block script %}
+<script>
+  const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+  const editButton = document.querySelector('#editButton')
+  editButton.addEventListener('click', function (event) {
+    editButton.style.display = 'none'
+  
+    const updates = {}
+    const duties = document.querySelectorAll('.duty')
+    
+    duties.forEach(duty => {
+      duty.addEventListener('click', function (event) {
+        const date = event.target.dataset.date
+        const nursePk = event.target.dataset.nursePk
+        const targetDuty = parseInt(event.target.dataset.targetDuty)
+
+        if (updates[`${nursePk}-${date}`] === undefined) {
+          updates[`${nursePk}-${date}`] = (targetDuty + 1) % 4
+        } else {
+          updates[`${nursePk}-${date}`] = (updates[`${nursePk}-${date}`] + 1) % 4
+        }
+
+        if (updates[`${nursePk}-${date}`] === 0) {
+          duty.style.backgroundColor = '#ffffff'
+          duty.innerText = '/'
+        } else if (updates[`${nursePk}-${date}`] === 1) {
+          duty.style.backgroundColor = '#2a9d8f'
+          duty.innerText = 'D'
+        } else if (updates[`${nursePk}-${date}`] === 2) {
+          duty.style.backgroundColor = '#e9c46a'
+          duty.innerText = 'E'
+        } else if (updates[`${nursePk}-${date}`] === 3) {
+          duty.style.backgroundColor = '#f4a261'
+          duty.innerText = 'N'
+        }
+        console.log(updates)
+      })
+    })
+
+    const confirmForm = document.querySelector(".confirmForm")
+    confirmForm.style.display = 'block'
+    confirmForm.addEventListener('submit', function (event) {
+      event.preventDefault()
+      const loading = document.querySelector('#loading')
+      loading.style.display = 'block'
+
+      const date = event.target.dataset.confirmDate
+      console.log(date)
+      console.log(typeof date)
+
+      axios({
+        method: 'post',
+        url: `http://127.0.0.1:8000/schedule/update/${date}/`,
+        headers: {'X-CSRFToken': csrftoken},
+        data: {updates:updates},
+      })
+        .then(response => {
+          console.log(updates)
+          window.location.href = `/schedule/hospital/${date}/`
+        })
+    })
+  })
+</script>
+{% endblock script %} 

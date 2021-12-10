@@ -1,0 +1,29 @@
+.DFN-btn {
+  background-color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-color: #264653;
+  border-radius: 5px;
+  border: 1px solid;
+  color: #264653;
+}
+
+.DFN-btn:hover {
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-color: #264653;
+  border-radius: 5px;
+  border: 1px solid;
+  background-color: #264653;
+}
+
+/* 
+.DFN-checkbox:checked {
+  background-color: #264653;
+}
+:checked {
+  background-color: #264653;
+} */
+
+/* input[type="checkbox"]:checked {
+  background-color: #264653;
+} */

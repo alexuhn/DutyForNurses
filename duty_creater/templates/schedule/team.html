@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block content %}
+<div class="p-5" style="background-color: #ffffff; width: auto; border-radius: 30px">
+  {% if existence %}
+  <h1>{{team_id}}팀의 {{ year}}년 {{ month }}월 듀티</h1>
+
+  <table class="table text-center table-hover">
+    <thead>
+      <tr>
+        <th colspan="32">{{ team_id }}팀의 한달 일정</th>
+      </tr>
+      <tr>
+        <td></td>
+        {% for day in days %}  
+        <td>{{ day }}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <td></td>
+        {% for weekday in weekdays %}  
+        {% if weekday == '일' %}
+        <td style="color:#e76f51;">{{ weekday }}</td>
+        {% elif weekday == '토' %}
+        <td style="color:#457b9d;">{{ weekday }}</td>
+        {% else %}
+        <td>{{ weekday }}</td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% comment %} <p>{{nurses_names.0}}</p> {% endcomment %}
+      {% for nurse_pk, nurse_name in nurse_names %}
+      {% if dict_duties|get_item:nurse_pk %}
+      <tr>  
+        {% if request.user.profile.name == nurse_name %}
+        <td class="fw-bolder" style="color: #e76f51;">{{ nurse_name }}</td>
+        {% else %}
+        <td>{{ nurse_name }}</td>
+        {% endif %}
+
+        {% for duty in dict_duties|get_item:nurse_pk %}
+
+        {% if duty == 0 %}
+        <td>/</td>
+        {% elif duty == 1 %}
+        <td style="background-color:#2a9d8f;">D</td>
+        {% elif duty == 2 %}
+        <td style="background-color:#e9c46a;">E</td>
+        {% else %}
+        <td style="background-color:#f4a261;">N</td>
+        {% endif %}
+
+        {% endfor %}
+
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h2 style="text-align: center;">선택하신 날의 듀티가 존재하지 않습니다</h2>
+  {% endif %}
+</div>
+{% endblock content %}
+

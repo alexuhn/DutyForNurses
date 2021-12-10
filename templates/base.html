@@ -1,0 +1,210 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,700;1,700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+
+  <!-- favicon -->
+  <link rel="icon" href="http://127.0.0.1:8000/static/favicon.png">
+
+  <!-- custom css -->  
+  <link rel="stylesheet" href="{% static 'base.css' %}">
+
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      min-height: 100%;
+      background-color: rgb(240, 240, 240);
+    }
+    html{
+      height: 100%;
+    }
+  </style>
+  <title>Duty For Nurses</title>
+</head>
+<body>
+  <nav class="navbar" style="background-color:#264653;">
+    <div class="container-fluid">
+      <div class="d-flex flex-row">
+        <div class="p-1" style="margin-top: 1px;">
+          <a class="navbar-brand mt-1" href="{% url 'schedule:index' %}" style="font-family: 'Montserrat', sans-serif; color: #ffffff;">DFN</a>
+        </div>
+        {% if request.user.is_authenticated %}
+        <!-- 나의 듀티 확인 드랍다운 버튼 -->
+        <div class="btn-group">
+          <a href="{% url 'schedule:personal' user.pk %}">
+            <button type="button" class="btn btn-link text-decoration-none text-white px-0">나의 듀티</button>
+          </a>
+          <button type="button" class="btn btn-link dropdown-toggle dropdown-toggle-split text-white px-1" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <input type="month" id="personal-date" name="personal-date" data-user-id="{{ user.pk }}" class="m-1" style="border-width:1px; text-align:center; padding:3px; margin:5px; border-style:solid;">
+            </li>
+            <li class="d-grid">
+              <button id="personal-duty" class="DFN-btn m-1">듀티 확인</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 팀의 듀티 확인 드랍다운 버튼 -->
+        {% if user.profile.team %}
+        <div class="btn-group mx-1">
+          <a href="{% url 'schedule:team' user.profile.team %}">
+            <button type="button" class="btn btn-link text-decoration-none text-white px-0">팀의 듀티</button>
+          </a>
+          <button type="button" class="btn btn-link dropdown-toggle dropdown-toggle-split text-white px-1" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <input type="month" id="team-date" name="team-date" data-user-team="{{ user.profile.team }}" class="m-1" style="border-width:1px; text-align:center; padding:3px; margin:5px; border-style:solid;">
+            </li>
+            <li class="d-grid">
+              <button id="team-duty" class="DFN-btn m-1">듀티 확인</button>
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+
+        <!-- 전체 듀티 확인 드랍다운 버튼 -->
+        <div class="btn-group mx-1">
+          <a href="{% url 'schedule:hospital'%}">
+            <button type="button" class="btn btn-link text-decoration-none text-white px-0">전체 듀티</button>
+          </a>
+          <button type="button" class="btn btn-link dropdown-toggle dropdown-toggle-split text-white px-1" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <input type="month" id="hospital-date" name="hospital-date" class="m-1" style="border-width:1px; text-align:center; padding:3px; margin:5px; border-style:solid;">
+            </li>
+            <li class="d-grid">
+              <button id="hospital-duty" class="DFN-btn m-1">듀티 확인</button>
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      <div class="d-flex">
+        {% if request.user.is_authenticated %}
+        <div class="p-1" style="margin-top: 1px;">
+          <a href="{% url 'schedule:modification' request.user.pk %}" class="me-2 text-decoration-none align-middle text-white" style="color: #264653;">휴무</a>
+        </div>
+        {% if request.user.is_staff %}
+        <div class="p-1" style="margin-top: 1px;">
+          <a href="{% url 'schedule:all_modification' %}" class="me-2 text-decoration-none align-middle text-white" style="color: #264653;">휴무 신청 목록</a>
+        </div>
+        <div class="p-1" style="margin-top: 1px;">
+          <a href="{% url 'schedule:create' %}" class="me-2 text-decoration-none align-middle text-white" style="color: #264653;">새로운 듀티 만들기</a>
+        </div>
+        {% endif %}
+        
+        <div class="dropdown">
+          <button class="btn btn-link text-decoration-none text-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            계정
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="{% url 'accounts:logout' %}" >로그아웃</a></li>
+            <li><a class="dropdown-item" href="{% url 'accounts:profile' user.pk %}">프로필</a></li>
+            <li><a class="dropdown-item" href="{% url 'accounts:update' %}">계정 정보 수정</a></li>
+          </ul>
+        </div>
+        {% else %}
+        <a href="{% url 'accounts:login' %}" class="me-2 text-decoration-none text-white">로그인</a>
+        <a href="{% url 'accounts:signup' %}" class="text-decoration-none text-white">간호사 등록</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid my-3 pb-5">
+    {% block content %}
+    {% endblock content %}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const today = new Date()
+    const year = today.getFullYear()
+    const month = today.getMonth() + 1
+
+    const pesonalInput = document.querySelector('#personal-date')
+    pesonalInput.value = year + '-' + month
+
+    const personalButton = document.querySelector('#personal-duty')
+    personalButton.addEventListener('click', function (event) {
+      if (pesonalInput.value) {
+        axios({
+          method: 'get',
+          url: `http://127.0.0.1:8000/schedule/duty-exist/${pesonalInput.value}/`,
+        })
+          .then(response => {
+            if (response.data.flag) {
+              window.location.href = `/schedule/personal/${pesonalInput.dataset.userId}/${pesonalInput.value}/`
+            } else {
+              alert('선택하신 날짜에 듀티가 존재하지 않습니다.')
+            }
+          })
+      }
+    })
+
+
+    const teamInput = document.querySelector('#team-date')
+    teamInput.value = year + '-' + month
+
+    const teamButton = document.querySelector('#team-duty')
+    teamButton.addEventListener('click', function (event) {
+      if (teamInput.value) {
+        axios({
+          method: 'get',
+          url: `http://127.0.0.1:8000/schedule/duty-exist/${teamInput.value}/`,
+        })
+          .then(response => {
+            if (response.data.flag) {
+              window.location.href = `/schedule/team/${teamInput.dataset.userTeam}/${teamInput.value}/`
+            } else {
+              alert('선택하신 날짜에 듀티가 존재하지 않습니다.')
+            }
+          })
+      }
+    })
+
+    const hospitalInput = document.querySelector('#hospital-date')
+    hospitalInput.value = year + '-' + month
+
+    const hospitalButton = document.querySelector('#hospital-duty')
+    hospitalButton.addEventListener('click', function (event) {
+      if (hospitalInput.value) {
+        axios({
+          method: 'get',
+          url: `http://127.0.0.1:8000/schedule/duty-exist/${hospitalInput.value}/`,
+        })
+          .then(response => {
+            if (response.data.flag) {
+              window.location.href = `/schedule/hospital/${hospitalInput.value}/`
+            } else {
+              alert('선택하신 날짜에 듀티가 존재하지 않습니다.')
+            }
+          })
+      }
+    })
+  </script>
+  {% block script %}
+  {% endblock script %}
+</body>
+</html>
