@@ -1,6 +1,6 @@
 ![DFN_logo.png](README.assets/DFN_logo.png)
 
-**`Duty For Nurses`**는 강력하고 빠른 듀티표 생성, 직관적인 개인별 및 팀별 듀티표를 제공하는 생산성 툴입니다. 어렵고 힘든 듀티표 생성 업무는 DFN에 맡겨주세요!
+**`Duty For Nurses`** 는 강력하고 빠른 듀티표 생성, 직관적인 개인별 및 팀별 듀티표를 제공하는 생산성 툴입니다. 어렵고 힘든 듀티표 생성 업무는 DFN에 맡겨주세요!
 
 <br>
 
@@ -10,7 +10,7 @@
 
 종합병원에 근무하는 간호사들에게 '듀티표 제작'은 엄청난 스트레스입니다. 고려해야 할 변수들이 너무나 많기 때문입니다. 우선 매일매일 일정한 수의 간호사들이 모든 근무 시간대별로(주간, 저녁, 야간) 근무해야 합니다. 주말에 야근을 하고 싶어하는 사람들은 아무도 없으니 특정 간호사에게 주말 야간 근무가 몰리는 일도 없어야 합니다. 야간 근무 다음 날 하루 쉬고, 바로 주간 근무를 시작하는 불합리한 근무도 피해야 합니다. 거기다가 경조사 등의 일정이 생기면 휴가를 쓰기도 해야 합니다. 
 
-실제로 이러한 점들을 다 고려하며 듀티표를 짤 경우, **18인 규모의 듀티표 제작에만 이틀정도가 소모**된다고 합니다.  간호사별 스케쥴 수정 요청을 받는 시간까지 고려하면 듀티표 제작은 훨씬 더 오래 걸리게 됩니다. 간호사들은 **보통 휴무일에 시간표를 제작**하기 때문에  **듀티표 생성**은 그 자체로 **간호사들에게 엄청난 스트레스**입니다**.** 이런 문제를 해결하기 위해 '**Duty For Nurse**'를 제작했습니다. 
+실제로 이러한 점들을 다 고려하며 듀티표를 짤 경우, **18인 규모의 듀티표 제작에만 이틀정도가 소모**된다고 합니다.  간호사별 스케쥴 수정 요청을 받는 시간까지 고려하면 듀티표 제작은 훨씬 더 오래 걸리게 됩니다. 간호사들은 **보통 휴무일에 시간표를 제작**하기 때문에  **듀티표 생성**은 그 자체로 **간호사들에게 엄청난 스트레스**입니다. 이런 문제를 해결하기 위해 '**Duty For Nurse**' 를 제작했습니다. 
 
 - [**의뢰받은 병원의 근무 조건**](https://bustling-carver-c58.notion.site/427c427689824d219e56a39b1c5d30ac)
 
@@ -94,9 +94,9 @@ pip install -r requirements.txt
 5️⃣ **make migrations and migrate.**
 
 ```bash
-**python manage.py makemigrations
+python manage.py makemigrations
 python manage.py migrate
-python manage.py runserver**
+python manage.py runserver
 ```
 
 6️⃣ **make account for head nurse.**
@@ -214,9 +214,7 @@ and check `is_staff(스태프 권한)`  to `True`
 
 ![Capsuled.png](README.assets/Capsuled.png)
 
-상세 코드는 아래 링크에서 확인하실 수 있습니다. 
-
-[DutyForNurses/DutyForNurses/duty_creater/custom_classes at master · alexuhn/DutyForNurses](https://github.com/alexuhn/DutyForNurses/tree/master/DutyForNurses/duty_creater/custom_classes)
+상세 코드는 [링크](https://github.com/alexuhn/DutyForNurses/tree/master/DutyForNurses/duty_creater/custom_classes)에서 확인하실 수 있습니다. 
 
 - **소개 슬라이드**
   
