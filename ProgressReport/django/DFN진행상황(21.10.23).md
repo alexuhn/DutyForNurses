@@ -4,7 +4,7 @@
 
 ## model 객체 생성
 
-![ERD_00.drawio](DFN 진행 상황 (21.10.23).assets/ERD_00.drawio.png)
+![ERD_00.drawio](DFN진행상황(21.10.23).assets/ERD_00.drawio.png)
 
 `User`와 `Profile`은 1:1의 관계를, `User`와 `Event`는 1:N의 관계를 맺는다.
 
@@ -100,9 +100,9 @@ def create_profile(request):
     return render(request, 'accounts/create.html', context)
 ```
 
-<img src="DFN 진행 상황 (21.10.23).assets/profile.png">
+<img src="DFN진행상황(21.10.23).assets/profile.png">
 
-![](DFN 진행 상황 (21.10.23).assets/create_profile.png)
+![](DFN진행상황(21.10.23).assets/create_profile.png)
 
 <br>
 
@@ -229,9 +229,9 @@ def new(request):
 </html>
 ```
 
-![](DFN 진행 상황 (21.10.23).assets/db.png)
+![](DFN진행상황(21.10.23).assets/db.png)
 
-![](DFN 진행 상황 (21.10.23).assets/new.png)
+![](DFN진행상황(21.10.23).assets/new.png)
 
 ### 개선해야 할 사항
 

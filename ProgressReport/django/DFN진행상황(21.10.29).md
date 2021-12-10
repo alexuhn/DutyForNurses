@@ -91,7 +91,7 @@ def create_monthly(request, date):
     return render(request, 'schedule/create_monthly.html', context)
 ```
 
-![](DFN 진행 상황 (21.10.29).assets/127.0.0.1_8000_schedule_create_2021-10_.png)
+![](DFN진행상황(21.10.29).assets/127.0.0.1_8000_schedule_create_2021-10_.png)
 
 <br>
 
@@ -202,7 +202,7 @@ def personal(request, nurse_pk, date=today):
     return render(request, 'schedule/personal.html', context)
 ```
 
-![](DFN 진행 상황 (21.10.29).assets/127.0.0.1_8000_schedule_personal_6_.png)
+![](DFN진행상황(21.10.29).assets/127.0.0.1_8000_schedule_personal_6_.png)
 
 <br>
 
@@ -256,7 +256,7 @@ def team(request, team_id, date=today):
     return render(request, 'schedule/team.html', context)
 ```
 
-![](DFN 진행 상황 (21.10.29).assets/127.0.0.1_8000_schedule_team_0_.png)
+![](DFN진행상황(21.10.29).assets/127.0.0.1_8000_schedule_team_0_.png)
 
 <br>
 

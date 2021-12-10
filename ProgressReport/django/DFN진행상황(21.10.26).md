@@ -88,7 +88,7 @@ EventFormSet = modelformset_factory(Event, form=EventForm, extra=0)
 {% endblock content %}
 ```
 
-![](DFN 진행 상황 (21.10.26).assets/update.png)
+![](DFN진행상황(21.10.26).assets/update.png)
 
 ### 개선해야 할 사항
 

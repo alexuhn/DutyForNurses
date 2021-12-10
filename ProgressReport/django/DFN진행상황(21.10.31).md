@@ -90,53 +90,53 @@ def create_monthly(request, date):
 
 ### 로그인
 
-![127.0.0.1_8000_accounts_login_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_accounts_login_-16356930031552.png)
+![127.0.0.1_8000_accounts_login_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_login_-16356930031552.png)
 
 ### 회원가입
 
-![127.0.0.1_8000_accounts_signup_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_accounts_signup_-16356930247673.png)
+![127.0.0.1_8000_accounts_signup_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_signup_-16356930247673.png)
 
 ### 계정 정보 수정
 
-![127.0.0.1_8000_accounts_update_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_accounts_update_-16356931159624.png)
+![127.0.0.1_8000_accounts_update_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_update_-16356931159624.png)
 
 ### 비밀번호 변경
 
-![127.0.0.1_8000_accounts_password_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_accounts_password_-16356931370805.png)
+![127.0.0.1_8000_accounts_password_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_password_-16356931370805.png)
 
 ### 프로필 생성
 
-![127.0.0.1_8000_accounts_signup_ (1)](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_accounts_signup_ (1)-16356931850906.png)
+![127.0.0.1_8000_accounts_signup_ (1)](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_signup_ (1)-16356931850906.png)
 
 ### 프로필
 
-![127.0.0.1_8000_accounts_profile_15_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_accounts_profile_15_.png)
+![127.0.0.1_8000_accounts_profile_15_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_profile_15_.png)
 
 ### 프로필(작성되지 않은 경우)
 
-![127.0.0.1_8000_accounts_profile_20_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_accounts_profile_20_-16356932266447.png)
+![127.0.0.1_8000_accounts_profile_20_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_profile_20_-16356932266447.png)
 
 ### 프로필 수정
 
-![127.0.0.1_8000_accounts_profile_update](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_accounts_profile_update-16356932378358.png)
+![127.0.0.1_8000_accounts_profile_update](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_profile_update-16356932378358.png)
 
 ### 인덱스(사용 미정)
 
-![127.0.0.1_8000_schedule_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_schedule_-16356932484489.png)
+![127.0.0.1_8000_schedule_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_schedule_-16356932484489.png)
 
 ### 개인 듀티
 
-![127.0.0.1_8000_schedule_personal_15_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_schedule_personal_15_.png)
+![127.0.0.1_8000_schedule_personal_15_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_schedule_personal_15_.png)
 
 ### 팀 듀티
 
-![127.0.0.1_8000_schedule_team_3_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_schedule_team_3_.png)
+![127.0.0.1_8000_schedule_team_3_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_schedule_team_3_.png)
 
 ### 듀티 생성(날짜 선택)
 
-![127.0.0.1_8000_schedule_create_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_schedule_create_.png)
+![127.0.0.1_8000_schedule_create_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_schedule_create_.png)
 
 ### 듀티 생성
 
-![127.0.0.1_8000_schedule_create_2021-11_](DFN 진행 상황 (21.10.31).assets/127.0.0.1_8000_schedule_create_2021-11_.png)
+![127.0.0.1_8000_schedule_create_2021-11_](DFN진행상황(21.10.31).assets/127.0.0.1_8000_schedule_create_2021-11_.png)
 

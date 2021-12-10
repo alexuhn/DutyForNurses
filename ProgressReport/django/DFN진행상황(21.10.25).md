@@ -78,15 +78,15 @@ class ProfileForm(forms.ModelForm):
 
 ### 프로필 생성
 
-![](DFN 진행 상황 (21.10.25).assets/create_profile.png)
+![](DFN진행상황(21.10.25).assets/create_profile.png)
 
 ### 프로필이 없을 경우
 
-![no_profile](DFN 진행 상황 (21.10.25).assets/no_profile.png)
+![no_profile](DFN진행상황(21.10.25).assets/no_profile.png)
 
 ### 프로필
 
-![profile](DFN 진행 상황 (21.10.25).assets/profile.png)
+![profile](DFN진행상황(21.10.25).assets/profile.png)
 
 <br>
 
@@ -198,13 +198,13 @@ def new(request):
 
 ### 원하는 달 선택
 
-![](DFN 진행 상황 (21.10.25).assets/new_main.png)
+![](DFN진행상황(21.10.25).assets/new_main.png)
 
 ### 만들어진 일정
 
 실제 간호사들이 사용하는 듀티표는 가로로된 A4용지에 행은 간호사, 열은 날짜로 설정하고 듀티는 `/`, `D`, `N`, `E`와 같이 표시하고 있었다. 듀티를 조회할 때 기존에 간호사가 익숙하게 보던 것과 구성을 동일하게 만들어 사용하는 도구는 달라져도 경험에는 끊김이 없는 연속성을 주고 싶었다. 이를 위해 한 달 듀티를 조회할 때에는 종이 듀티표와 동일한 형태로, 행에 각 간호사를, 열에 각 날짜를 넣은 테이블이 보이도록 했다. 현재 듀티는 0에서 3까지의 숫자로 표시되며 이후 각 숫자는 `/`, `D`, `N`, `E`  기호로 변경될 예정이다.
 
-![](DFN 진행 상황 (21.10.25).assets/new_new.png)
+![](DFN진행상황(21.10.25).assets/new_new.png)
 
 ### 필요한 기능
 

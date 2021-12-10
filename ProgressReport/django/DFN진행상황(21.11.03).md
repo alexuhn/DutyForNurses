@@ -59,11 +59,11 @@ URL의 변수들은 각 `input` 태그에 `data-user-id="{{ user.pk }}"`, `data-
 
 전반적으로 수정하며 계정에 대한 여러 `a tag` 또한 하나의 드랍다운 버튼으로 만들었다.
 
-![127.0.0.1_8000_schedule_personal_2_ (2)](DFN 진행 상황 (21.11.03).assets/127.0.0.1_8000_schedule_personal_2_ (2).png)
+![127.0.0.1_8000_schedule_personal_2_ (2)](DFN진행상황(21.11.03).assets/127.0.0.1_8000_schedule_personal_2_ (2).png)
 
-![127.0.0.1_8000_schedule_personal_2_](DFN 진행 상황 (21.11.03).assets/127.0.0.1_8000_schedule_personal_2_-16359317075641.png)
+![127.0.0.1_8000_schedule_personal_2_](DFN진행상황(21.11.03).assets/127.0.0.1_8000_schedule_personal_2_-16359317075641.png)
 
-![127.0.0.1_8000_schedule_personal_2_ (1)](DFN 진행 상황 (21.11.03).assets/127.0.0.1_8000_schedule_personal_2_ (1).png)
+![127.0.0.1_8000_schedule_personal_2_ (1)](DFN진행상황(21.11.03).assets/127.0.0.1_8000_schedule_personal_2_ (1).png)
 
 <br>
 
@@ -89,7 +89,7 @@ urlpatterns = [
 ]
 ```
 
-![127.0.0.1_8000_schedule_hospital_](DFN 진행 상황 (21.11.03).assets/127.0.0.1_8000_schedule_hospital_.png)
+![127.0.0.1_8000_schedule_hospital_](DFN진행상황(21.11.03).assets/127.0.0.1_8000_schedule_hospital_.png)
 
 <br>
 

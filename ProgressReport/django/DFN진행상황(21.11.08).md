@@ -61,20 +61,20 @@ class ScheduleModification(models.Model):
 
 1) 개인 휴무 신청 내역 조회
 
-![](DFN 진행 상황 (21.11.08).assets/127.0.0.1_8000_schedule_modify_7_.png)
+![](DFN진행상황(21.11.08).assets/127.0.0.1_8000_schedule_modify_7_.png)
 
 2. 휴무 신청
 
-![127.0.0.1_8000_schedule_modify_create_](DFN 진행 상황 (21.11.08).assets/127.0.0.1_8000_schedule_modify_create_.png)
+![127.0.0.1_8000_schedule_modify_create_](DFN진행상황(21.11.08).assets/127.0.0.1_8000_schedule_modify_create_.png)
 
 3. 전체 휴무 신청 내역 조회
 
-![127.0.0.1_8000_schedule_modify_all_](DFN 진행 상황 (21.11.08).assets/127.0.0.1_8000_schedule_modify_all_.png)
+![127.0.0.1_8000_schedule_modify_all_](DFN진행상황(21.11.08).assets/127.0.0.1_8000_schedule_modify_all_.png)
 
 4. 듀티 생성시 휴무 내역 자동 조회, 승인
 
-![127.0.0.1_8000_schedule_create_ (2)](DFN 진행 상황 (21.11.08).assets/127.0.0.1_8000_schedule_create_ (2).png)
+![127.0.0.1_8000_schedule_create_ (2)](DFN진행상황(21.11.08).assets/127.0.0.1_8000_schedule_create_ (2).png)
 
 5. 승인된 휴무가 반영된 듀티 생성
 
-![127.0.0.1_8000_schedule_create_2021-12_](DFN 진행 상황 (21.11.08).assets/127.0.0.1_8000_schedule_create_2021-12_.png)
+![127.0.0.1_8000_schedule_create_2021-12_](DFN진행상황(21.11.08).assets/127.0.0.1_8000_schedule_create_2021-12_.png)
