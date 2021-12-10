@@ -73,7 +73,7 @@ class ScheduleModification(models.Model):
 
 4. 듀티 생성시 휴무 내역 자동 조회, 승인
 
-![127.0.0.1_8000_schedule_create_ (2)](DFN진행상황(21.11.08).assets/127.0.0.1_8000_schedule_create_ (2).png)
+![127.0.0.1_8000_schedule_create_(2)](DFN진행상황(21.11.08).assets/127.0.0.1_8000_schedule_create_ (2).png)
 
 5. 승인된 휴무가 반영된 듀티 생성
 

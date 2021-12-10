@@ -106,7 +106,7 @@ def create_monthly(request, date):
 
 ### 프로필 생성
 
-![127.0.0.1_8000_accounts_signup_ (1)](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_signup_ (1)-16356931850906.png)
+![127.0.0.1_8000_accounts_signup_(1)](DFN진행상황(21.10.31).assets/127.0.0.1_8000_accounts_signup_(1).png)
 
 ### 프로필
 
